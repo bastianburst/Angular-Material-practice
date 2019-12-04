@@ -1,0 +1,31 @@
+<div class="container_principal">
+  <form class="example-form">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Titulo" [(ngModel)]="books.titulo" name="books.titulo">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Descripción" [(ngModel)]="books.descripcion" name="books.descripcion">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Editorial" [(ngModel)]="books.editorial" name="books.editorial">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Fecha" [(ngModel)]="books.fecha" name="books.fecha">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-select [(ngModel)]="categor" name="categor" placeholder="Categorias">
+        <mat-option *ngFor="let cat of catego" [value]="cat">{{cat.descripcion}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <button mat-raised-button color="primary" (click)="Save()">Registrar</button>
+    <button mat-raised-button color="accent"><a class="link_bu" href="/bookslistar">Cancelar</a></button>
+  </form>
+
+</div>

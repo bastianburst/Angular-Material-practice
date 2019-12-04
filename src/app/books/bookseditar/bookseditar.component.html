@@ -1,0 +1,40 @@
+<div class="container_principal">
+
+    <form class="example-form">
+        <mat-form-field>
+            <input matInput type="text" placeholder="Titulo" [(ngModel)]="books.titulo" name="books.titulo">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Descripción" [(ngModel)]="books.descripcion" name="books.descripcion">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Editorial" [(ngModel)]="books.editorial" name="books.editorial">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Fecha" [(ngModel)]="books.fecha" name="books.fecha">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <div>Categoria : {{books.idcat.descripcion}}</div>
+        <mat-form-field>
+            <mat-select [(ngModel)]="categor" name="categor" placeholder="Categorias">
+
+                <mat-option *ngFor="let cat of categories" [value]="cat">{{cat.descripcion}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Estado</mat-label>
+            <select [(ngModel)]="books.estado" name="books.estado" matNativeControl required>
+                <option value="true">Activo</option>
+                <option value="false">Inactivo</option>
+            </select>
+        </mat-form-field>
+
+
+        <button mat-raised-button color="primary" (click)="Update()" >Actualizar</button>
+        <button mat-raised-button color="accent"><a class="link_bu" href="/bookslistar">Cancelar</a></button>
+    </form>
+    
+</div>
